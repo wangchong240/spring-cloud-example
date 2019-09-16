@@ -26,7 +26,7 @@ feign:
     config:
       default:
         connectTimeout: 2000
-        readTimeout: 2000
+        readTimeout: 1000
   hystrix:
     enabled: true
 
@@ -37,4 +37,11 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 4000
+            timeoutInMilliseconds: 1000
+
+#暴露全部监控信息
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
