@@ -1,0 +1,26 @@
+#\u8BBE\u7F6E\u7AEF\u53E3\u53F7
+server:
+  port: 9000
+
+#\u8BBE\u7F6E\u670D\u52A1\u540D\u79F0
+spring:
+  application:
+    name: api-gateway
+
+#\u6307\u5B9A\u6CE8\u518C\u4E2D\u5FC3
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+#\u81EA\u5B9A\u4E49\u8DEF\u7531\u8F6C\u53D1
+zuul:
+  routes:
+    product-service: /api-gateway/**
+    order-service: /api-gateway/**
+  #\u73AF\u5883\u9694\u79BB\u914D\u7F6E\uFF1A\u4E0D\u60F3\u8BA9\u9ED8\u8BA4\u7684\u670D\u52A1\u5BF9\u5916\u66B4\u9732\u63A5\u53E3
+  ignored-patterns: /*-service/**
+  #\u8BBE\u7F6E\u670D\u52A1\u9694\u79BB\uFF0C\u4E0D\u7ECF\u8FC7zuul\u8DEF\u7531
+  #ignored-services: product-service
+
+
