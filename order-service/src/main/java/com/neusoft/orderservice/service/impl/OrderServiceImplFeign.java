@@ -5,6 +5,8 @@ import com.neusoft.orderservice.domain.ProductOrder;
 import com.neusoft.orderservice.service.OrderService;
 import com.neusoft.orderservice.service.ProductClient;
 import com.neusoft.orderservice.utils.JsonUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -17,11 +19,15 @@ import java.util.UUID;
 @Service
 public class OrderServiceImplFeign implements OrderService {
 
+    private static final Logger logger = LoggerFactory.getLogger(OrderServiceImplFeign.class);
+
     @Resource
     private ProductClient productClient;
 
     @Override
     public ProductOrder save(Integer userId, Integer productId) {
+
+        logger.info("order-service:{}", "save()方法");
 
         String str = productClient.findById(productId);
         JsonNode product = JsonUtil.str2JsonNode(str);

@@ -1,0 +1,32 @@
+#服务注册地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+#应用名字
+spring:
+  application:
+    name: product-service
+  #指定从那个配置中心读取
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG-SERVER
+      #指定配置文件，不建议用profile后缀区分
+      profile: dev
+      #建议⽤用lable去区分环境，默认是lable是master分⽀支
+      label: master
+  #rabbitmq连接配置
+  rabbitmq:
+    host: 192.168.64.128
+    port: 5672
+    username: guest
+    password: guest
+#暴露全部的监控信息
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

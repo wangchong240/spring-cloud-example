@@ -16,11 +16,9 @@ eureka:
 #网关设置
 zuul:
   routes:
-    product-service: /api-gateway/**
-    order-service: /api-gateway/**
-  #服务隔离，避免开放默认服务
+    product-service: /api-gateway/product/**
+    order-service: /api-gateway/order/**
   ignored-patterns: /*-service/**
-  #应用隔离，指定应用不走网关
-  #ignored-services: product-service
-
+  #设置脱敏头信息为空，否则cookie等敏感信息不能传递
+  sensitive-headers:
 

@@ -2,6 +2,8 @@ package com.neusoft.productservice.service.impl;
 
 import com.neusoft.productservice.domain.Product;
 import com.neusoft.productservice.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,6 +13,8 @@ import java.util.Map;
 
 @Service
 public class ProductServiceImpl implements ProductService {
+
+    private static final Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
 
     private static final Map<Integer, Product> map = new HashMap<>();
 
@@ -34,11 +38,13 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> productList() {
+        logger.info("product-service:{}", "productList()方法");
          return new ArrayList<>(map.values());
     }
 
     @Override
     public Product findById(int id) {
+        logger.info("product-service:{}", "findById()方法");
         return map.get(id);
     }
 }
