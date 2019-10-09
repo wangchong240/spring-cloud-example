@@ -1,0 +1,19 @@
+#设置应用名字
+spring:
+  application:
+    name: api-gateway
+#配置中心服务
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG-SERVER
+      profile: dev
+
+#注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
