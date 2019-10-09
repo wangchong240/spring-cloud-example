@@ -1,13 +1,13 @@
 spring:
   application:
     name: order-service
-#配置中心服务
   cloud:
     config:
       discovery:
         enabled: true
         service-id: CONFIG-SERVER
       profile: dev
+      label: home
 
 #注册中心地址
 eureka:

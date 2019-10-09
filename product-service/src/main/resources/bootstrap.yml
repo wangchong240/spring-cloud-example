@@ -17,4 +17,4 @@ spring:
       #指定配置文件，不建议用profile后缀区分
       profile: dev
       #建议⽤用lable去区分环境，默认是lable是master分⽀支
-      label: master
+      label: home

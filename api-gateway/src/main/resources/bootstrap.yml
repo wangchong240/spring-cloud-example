@@ -9,6 +9,7 @@ spring:
         enabled: true
         service-id: CONFIG-SERVER
       profile: dev
+      label: home
 
 #注册中心
 eureka:
